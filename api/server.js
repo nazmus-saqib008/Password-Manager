@@ -1,5 +1,6 @@
 const express= require('express');
 const mongoose = require('mongoose');
+const path= require('path');
 require('dotenv').config();
 
 const cookieParser= require('cookie-parser')
@@ -13,9 +14,17 @@ const secret= process.env.secret
 const User = require('./models/User')
 const Data= require('./models/Data')
 
-mongoose.connect(process.env.URI)
+mongoose.connect(process.env.URI);
+
+const __dirname= path.resolve();
 
 const app= express();
+
+app.use(express.static(path.join(__dirname,'client','dist')))
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+})
 
 app.use(express.json());
 app.use(cookieParser());
