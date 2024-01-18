@@ -141,17 +141,17 @@ function Form() {
                             setSummary(ev.target.value)
                         }}/>
                     {/* {user && ( */}
-                    {cookies.token && (
+                    {/* {cookies.token && ( */}
                         <button type='submit'>Save</button>
 
-                    )}
+                    {/* )} */}
                     {/* {!user && ( */}
-                    {!cookies.token && (
+                    {/* {!cookies.token && (
                         <Link to={'/login'}>
                             Sign In First
                         </Link>
                         
-                    )}
+                    )} */}
                 </form>
 
             </div>
