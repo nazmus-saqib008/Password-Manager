@@ -20,10 +20,10 @@ const _dirname= path.resolve();
 
 const app= express();
 
-app.use(express.static(path.join(_dirname,'client','dist')))
+app.use(express.static(path.join(_dirname,'client','build')))
 
 app.get('*', (req, res)=>{
-    res.sendFile(path.join(_dirname, 'client', 'dist', 'index.html'))
+    res.sendFile(path.join(_dirname, 'client', 'build', 'index.html'))
 })
 
 app.use(express.json());
