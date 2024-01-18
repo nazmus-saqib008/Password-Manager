@@ -1,12 +1,13 @@
 import { useState } from "react";
 import './UserPage.css';
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function RegisterPage(){
 
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
     const [redir, setRedir]= useState(false);
+    const navigate= useNavigate();
 
     async function register(ev){
         console.log("button clicked");
@@ -24,7 +25,8 @@ export default function RegisterPage(){
         }
     }
     if(redir){
-        return redirect('/profile');
+        // return redirect('/profile');
+        navigate('/login');
     }
     return(
         <div className="userpage">

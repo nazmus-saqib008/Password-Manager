@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import './Form.css'
 import { UserContext } from '../UserContext';
 import {useCookies} from 'react-cookie'
-import { Link,redirect } from 'react-router-dom';
+import { Link,redirect, useNavigate } from 'react-router-dom';
 
 function Form() {
     const [smallLetter, setSmallLetter] = useState("");
@@ -14,6 +14,8 @@ function Form() {
 
     const [title, setTitle]= useState("");
     const [summary, setSummary]= useState("");
+
+    const navigate= useNavigate();
 
 
     function smallLetterSet(){
@@ -87,7 +89,8 @@ function Form() {
 
     }
     if(redir){
-        return redirect('/profile');
+        // return redirect('/profile');
+        navigate('/profile');
     }
 
     const user= userInfo?.username;

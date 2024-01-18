@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const Item=({note, password, title, _id})=> {
     const [showPass, setShowPass]= useState(false);
     const [redir, setRedir]= useState(false);
+    const navigate= useNavigate();
     function delItem(ev){
         fetch(`/api/data/${_id}`,{
             method: "DELETE",
@@ -18,7 +19,8 @@ const Item=({note, password, title, _id})=> {
         })
     }
     if(redir){
-        return redirect('profile');
+        // return redirect('profile');
+        navigate('/profile');
     }
     return (
         <div className="contents-container">

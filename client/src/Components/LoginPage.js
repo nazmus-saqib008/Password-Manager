@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import './UserPage.css'
 import { UserContext } from "../UserContext";
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
     const [redir, setRedir]= useState(false);
+    const navigate= useNavigate();
 
     const {setUserInfo} = useContext(UserContext);
 
@@ -29,8 +30,9 @@ export default function LoginPage(){
         }
     }
     if(redir){
-        return redirect('/profile');
+        navigate('/profile');
     }
+
     return(
 
     <div className="userpage">
