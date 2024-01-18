@@ -1,0 +1,32 @@
+.userpage{
+    max-width: 600px;
+    margin: auto;
+}
+
+.userpage h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.userform{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.userform input{
+    border-radius: 10px;
+    width: 100%;
+    border: 2px solid black;
+    padding: 4px 12px;
+    margin: 5px 0px;
+}
+
+.userform button{
+    margin-top: 20px;
+    border: 0px;
+    background-color: rgb(146, 146, 146);
+    border-radius: 10px;
+    padding: 6px;
+}
