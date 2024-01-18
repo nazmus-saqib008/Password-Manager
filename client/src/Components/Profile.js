@@ -3,14 +3,12 @@ import './Profile.css'
 import Item from './Item';
 import Header from './Header';
 import { UserContext } from '../UserContext';
-import { useCookies } from 'react-cookie';
 
 export default function Profile() {
 
   const {userInfo}= useContext(UserContext);
   const [passwords, setPasswords]= useState([]);
   const [searchword, setSearchword]= useState("");
-  const [cookies, setCookies]= useCookies();
 
   useEffect(()=>{
     fetch(`/api/data`,{
