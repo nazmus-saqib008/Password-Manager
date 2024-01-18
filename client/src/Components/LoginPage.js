@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import './UserPage.css'
 import { UserContext } from "../UserContext";
-// import {Navigate} from 'react-router-dom'
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { redirect } from "react-router-dom";
 
 export default function LoginPage(){
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
-    const [redirect, setRedirect]= useState(false);
+    const [redir, setRedir]= useState(false);
 
     const {setUserInfo} = useContext(UserContext);
 
@@ -24,13 +23,13 @@ export default function LoginPage(){
             response.json().then(userInfo=>{
                 setUserInfo(userInfo);
             })
-            setRedirect(true);
+            setRedir(true);
         }else{
             alert("wrong credentials")
         }
     }
-    if(redirect){
-        return <Redirect to={'/profile'}/>
+    if(redir){
+        return redirect('/profile');
     }
     return(
 

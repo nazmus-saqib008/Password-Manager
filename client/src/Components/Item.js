@@ -1,24 +1,24 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { redirect } from 'react-router-dom';
 
 const Item=({note, password, title, _id})=> {
     const [showPass, setShowPass]= useState(false);
-    const [redirect, setRedirect]= useState(false);
+    const [redir, setRedir]= useState(false);
     function delItem(ev){
         fetch(`/api/data/${_id}`,{
             method: "DELETE",
         }).then(response=>{
             response.json().then(feedback=>{
                 console.log(feedback);
-                setRedirect(true);
+                setRedir(true);
                 alert("Data Deleted");
             })
         })
     }
-    if(redirect){
-        return <Redirect to={'/profile'}/>
+    if(redir){
+        return redirect('profile');
     }
     return (
         <div className="contents-container">

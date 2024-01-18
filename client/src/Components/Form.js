@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './Form.css'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { UserContext } from '../UserContext';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import {useCookies} from 'react-cookie'
+import { Link,redirect } from 'react-router-dom';
 
 function Form() {
     const [smallLetter, setSmallLetter] = useState("");
@@ -66,7 +65,7 @@ function Form() {
         }
     },[])
 
-    const [redirect, setRedirect]= useState(false);
+    const [redir, setRedir]= useState(false);
 
     async function savePass(ev){
         ev.preventDefault();
@@ -83,12 +82,12 @@ function Form() {
         // console.log(await response.json());
         if(response.ok){
             alert("Password Saved");
-            setRedirect(true);
+            setRedir(true);
         }
 
     }
-    if(redirect){
-        return <Redirect to={'/profile'}/>
+    if(redir){
+        return redirect('/profile');
     }
 
     const user= userInfo?.username;
@@ -148,6 +147,7 @@ function Form() {
                         <Link to={'/login'}>
                             Sign In First
                         </Link>
+                        
                     )}
                 </form>
 

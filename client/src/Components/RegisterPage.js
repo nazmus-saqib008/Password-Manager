@@ -1,12 +1,12 @@
 import { useState } from "react";
-import './UserPage.css'
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import './UserPage.css';
+import { redirect } from "react-router-dom";
 
 export default function RegisterPage(){
 
     const [username, setUsername]= useState("");
     const [password, setPassword]= useState("");
-    const [redirect, setRedirect]= useState(false);
+    const [redir, setRedir]= useState(false);
 
     async function register(ev){
         console.log("button clicked");
@@ -17,14 +17,14 @@ export default function RegisterPage(){
             headers: {"Content-Type": "application/json"},
         })
         if(response.status===200){
-            setRedirect(true);
+            setRedir(true);
             alert("registration successful");
         }else{
             alert("registration failed");
         }
     }
-    if(redirect){
-        return <Redirect to={'/profile'}/>
+    if(redir){
+        return redirect('/profile');
     }
     return(
         <div className="userpage">

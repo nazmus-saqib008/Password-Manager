@@ -3,7 +3,6 @@ import {
 } from "react-router-dom";
 import { UserContext } from '../UserContext';
 import React, { useContext, useEffect, useState } from 'react'
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import {useCookies} from 'react-cookie'
 
 export default function Header(){
